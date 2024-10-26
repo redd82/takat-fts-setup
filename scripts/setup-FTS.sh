@@ -36,8 +36,7 @@ DOCKER_COMPOSE="docker-compose"
 HN=`hostname`
 HNF=`hostname -f`
 uuid=$(uuidgen | tr -d '-')
-TAKDIR="tak"
-installfilelocation="/home/takdocker"
+installfilelocation="~/"
 
 keypass=${1}
 domain=${2}
@@ -55,8 +54,6 @@ printf $success "\n TAKAT FTS Setup script \n"
 
 #cp $installfilelocation/latest/*.zip .
 #cp $installfilelocation/latest/tak-md5checksum.txt .
-
-
 
 arch=$(dpkg --print-architecture)
 
@@ -77,7 +74,7 @@ netstat_check () {
 }
 
 checksum () {
-	printf "\nChecking for TAK server release files (..RELEASE.zip) in the directory....\n"
+	printf "\nChecking for FreeTAKServer files in the directory....\n"
 	sleep 1
 	if [ "$(ls -hl *-RELEASE-*.zip 2>/dev/null)" ];
 	then
@@ -161,8 +158,6 @@ IP=`ip -4 addr show eth0 | grep -oP "(?<=inet ).*(?=/)"`
 export MY_IPA=$IP
 
 wget -qO - bit.ly/freetakhub2 | sudo bash -s -- --ip-addr ${MY_IPA}
-
-
 
 sudo systemctl status fts.service fts-ui.service mumble-server.service nodered.service rtsp-simple-server.service
 
