@@ -159,7 +159,7 @@ export MY_IPA=$IP
 
 wget -qO - bit.ly/freetakhub2 | sudo bash -s -- --ip-addr ${MY_IPA}
 
-sudo systemctl status fts.service fts-ui.service mumble-server.service nodered.service rtsp-simple-server.service
+sudo systemctl status fts.service mumble-server.service nodered.service rtsp-simple-server.service
 
 wget https://github.com/FreeTAKTeam/FreeTAKHub/releases/download/v0.2.5/FTH-webmap-linux-0.2.5.zip
 
